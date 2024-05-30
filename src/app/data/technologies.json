@@ -1,0 +1,42 @@
+[
+    {
+        "name": "HTML5",
+        "image": "https://www.svgrepo.com/show/452228/html-5.svg"
+    },
+    {
+        "name": "CSS3",
+        "image": "https://www.svgrepo.com/show/452185/css-3.svg"
+    },
+    {
+        "name": "Sass",
+        "image": "https://www.svgrepo.com/show/374061/sass.svg"
+    },
+    {
+        "name": "Tailwind CSS",
+        "image": "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg"
+    },
+    {
+        "name": "JavaScript",
+        "image": "https://www.svgrepo.com/show/452045/js.svg"
+    },
+    {
+        "name": "TypeScript",
+        "image": "https://www.svgrepo.com/show/303600/typescript-logo.svg"
+    },
+    {
+        "name": "React",
+        "image": "https://www.svgrepo.com/show/452092/react.svg"
+    },
+    {
+        "name": "Redux",
+        "image": "https://www.svgrepo.com/show/452093/redux.svg"
+    },
+    {
+        "name": "Next.js",
+        "image": "https://www.svgrepo.com/show/354112/nextjs.svg"
+    },
+    {
+        "name": "Vite",
+        "image": "https://www.svgrepo.com/show/374167/vite.svg"
+    }
+]

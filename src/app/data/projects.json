@@ -1,0 +1,85 @@
+[
+    {
+        "title": "Ohmyfood",
+        "description": "Enhance the interface of a mobile site with CSS animations.",
+        "skills": [
+            "Mobile-first model integration",
+            "CSS animations",
+            "Use of Sass",
+            "Project versioning with Git"
+        ],
+        "image": "/images/ohmyfood.jpg",
+        "preview": "/images/ohmyfood-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P4-OhMyFood",
+        "liveurl": "https://karamelune.github.io/OC-P4-OhMyFood/"
+    },
+    {
+        "title": "Sophie Bluel",
+        "description": "Create a dynamic web page with JavaScript.",
+        "skills": [
+            "Communication with an API",
+            "DOM manipulation",
+            "Event management",
+            "Forms handling"
+        ],
+        "image": "/images/sophiebluel.jpg",
+        "preview": "/images/sophiebluel-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P6-SophieBluel",
+        "liveurl": ""
+    },
+    {
+        "title": "Kasa",
+        "description": "Create a real estate rental web application with React.",
+        "skills": [
+            "Creating React components",
+            "Routing with React Router",
+            "Application creation with Vite",
+            "Use of Sass"
+        ],
+        "image": "/images/kasa.jpg",
+        "preview": "/images/kasa-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P8-Kasa",
+        "liveurl": ""
+    },
+    {
+        "title": "Nina Carducci",
+        "description": "Optimize the SEO of a photographer's website.",
+        "skills": [
+            "Accessibility and SEO",
+            "Optimization of content",
+            "Performance improvement",
+            "Setting up structured tags"
+        ],
+        "image": "/images/ninacarducci.jpg",
+        "preview": "/images/ninacarducci-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P9-NinaCarducci",
+        "liveurl": "https://karamelune.github.io/OC-P9-NinaCarducci/"
+    },
+    {
+        "title": "724Events",
+        "description": "Debugging the website of an event agency.",
+        "skills": [
+            "Using Chrome and React DevTools",
+            "Detecting and fixing bugs",
+            "Implementation of unit tests"
+        ],
+        "image": "/images/724events.jpg",
+        "preview": "/images/724events-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P10-724Events",
+        "liveurl": ""
+    },
+    {
+        "title": "Argent Bank",
+        "description": "Implement the front-end of a banking application with React.",
+        "skills": [
+            "React components creation",
+            "Working with Redux",
+            "APIs with Axios",
+            "Using Swagger"
+        ],
+        "image": "/images/argentbank.jpg",
+        "preview": "/images/argentbank-preview.jpg",
+        "github": "https://github.com/karamelune/OC-P11-ArgentBank",
+        "liveurl": ""
+    }
+]
