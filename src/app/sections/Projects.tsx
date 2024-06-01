@@ -90,7 +90,7 @@ export const Projects = () => {
                                     fill={true}
                                     className="object-cover"
                                 />
-                                <CardFooter className="absolute bottom-1 left-1 rounded-full w-[40%] p-1 flex justify-center md:w-[60%] sm:w-[40%]">
+                                <CardFooter className="absolute bottom-1 left-1 rounded-full w-[50%] p-1 flex justify-center md:w-[60%] sm:w-[40%]">
                                     <p className="text-medium text-white/80 sm:text-sm">
                                         {project.title}
                                     </p>

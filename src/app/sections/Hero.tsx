@@ -25,7 +25,7 @@ export const Hero = () => {
                             className={`font-bold text-primary-400 transition-all ease-in duration-400 inline-block ${
                                 isInView
                                     ? 'opacity-100'
-                                    : '-translate-y-10 sm:translate-x-10 sm:-translate-y-0 opacity-0'
+                                    : '-translate-y-10 sm:-translate-y-0 opacity-0 sm:opacity-100'
                             }`}>
                             Dylan
                         </span>
@@ -33,7 +33,7 @@ export const Hero = () => {
                             className={`transition-all ease-in duration-400 inline-block ${
                                 isInView
                                     ? 'opacity-100'
-                                    : '-translate-y-10 sm:translate-x-10 sm:-translate-y-0 opacity-0'
+                                    : '-translate-y-10 sm:-translate-y-0 opacity-0 sm:opacity-100'
                             }`}>
                             .
                         </span>
@@ -42,7 +42,7 @@ export const Hero = () => {
                         className={`text-3xl text-white m-2 px-4 transition-all ease-in duration-400 delay-[125ms] md:text-2xl md:text-center sm:text-xl ${
                             isInView
                                 ? 'opacity-100'
-                                : 'translate-x-10 opacity-0'
+                                : 'translate-x-10 opacity-0 sm:translate-x-0 sm:opacity-100'
                         }`}>
                         I&apos;m a{' '}
                         <span className="font-bold">front-end developer</span>{' '}
