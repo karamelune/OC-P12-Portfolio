@@ -1,6 +1,3 @@
-// TODO: Make responsive
-// TODO?: Add a loading screen
-
 import { About } from './sections/About';
 import { Projects } from './sections/Projects';
 import { Contact } from './sections/Contact';

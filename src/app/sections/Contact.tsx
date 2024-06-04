@@ -99,7 +99,7 @@ export const Contact = () => {
                     <button
                         type="submit"
                         className={`p-4 bg-secondary-400 text-secondary-900 rounded-md hover:scale-105 my-4
-                        disabled:bg-secondary-400/50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:duration-0 transition-all ease-in duration-400 delay-[250ms] ${
+                        disabled:bg-secondary-400/50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:duration-0 transition-all ease-in duration-200 ${
                             isInView
                                 ? 'opacity-100'
                                 : 'translate-y-20 opacity-0'
