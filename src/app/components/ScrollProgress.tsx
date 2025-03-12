@@ -1,21 +1,28 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 export const ScrollProgress = () => {
-    const [scrollYProgress, setScrollYProgress] = useState(0);
+    const [scrollYProgress, setScrollYProgress] = useState<number>(0);
+
+    const handleScroll = useCallback(() => {
+        const totalHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPosition = window.scrollY;
+        const progress = totalHeight > 0 ? scrollPosition / totalHeight : 0;
+
+        setScrollYProgress(progress);
+    }, []);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const totalHeight =
-                document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPosition = window.scrollY;
-            setScrollYProgress(scrollPosition / totalHeight);
-        };
+        // Initialize on mount
+        handleScroll();
 
         window.addEventListener('scroll', handleScroll);
+
+        // Clean up event listener on unmount
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [handleScroll]);
 
     return (
         <div

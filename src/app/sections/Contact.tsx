@@ -4,12 +4,30 @@ import { FormEvent, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useInView } from 'framer-motion';
 
+type AnimationProps = {
+    isVisible: boolean;
+    translateValue: string;
+    delay?: string;
+};
+
 export const Contact = () => {
     const form = useRef<HTMLFormElement>(null);
-    const [isSending, setIsSending] = useState(false);
-    const [isSent, setIsSent] = useState(false);
+    const [isSending, setIsSending] = useState<boolean>(false);
+    const [isSent, setIsSent] = useState<boolean>(false);
 
-    const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const isInView = useInView(sectionRef, { once: true });
+
+    const createAnimationClass = ({
+        isVisible,
+        translateValue,
+        delay = '',
+    }: AnimationProps): string => `
+        transition-all ease-in duration-400 ${delay}
+        ${isVisible ? 'opacity-100' : `${translateValue} opacity-0`}
+    `;
+
+    const sendEmail = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         setIsSending(true);
 
@@ -19,37 +37,36 @@ export const Contact = () => {
                     publicKey: 'q2FaXs2xoOfNqQbff',
                 })
                 .then(
-                    (result) => {
+                    () => {
                         if (form.current) {
                             form.current.reset();
                         }
                         setIsSending(false);
                         setIsSent(true);
-                        setTimeout(() => {
-                            setIsSent(false);
-                        }, 60000);
+                        setTimeout(() => setIsSent(false), 60000);
                     },
-                    (error) => {
+                    () => {
                         setIsSending(false);
                     }
                 );
         }
     };
 
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-
     return (
         <section
-            className="sticky top-0 flex flex-col items-center justify-center w-full h-screen bg-gradient-to-l from-secondary-900  via-default-900 to-secondary-900"
+            className="sticky top-0 flex flex-col items-center justify-center w-full h-screen bg-gradient-to-l from-secondary-900 via-default-900 to-secondary-900"
             id="contact">
             <div
-                ref={ref}
+                ref={sectionRef}
                 className="flex flex-col items-center justify-center m-2 p-2 w-[50%] max-w-7xl md:w-[80%]">
                 <h1
-                    className={`text-4xl text-black my-8 transition-all ease-in duration-400 delay-100 ${
-                        isInView ? 'opacity-100' : '-translate-y-20 opacity-0'
-                    }`}>
+                    className={`text-4xl text-black my-8 ${createAnimationClass(
+                        {
+                            isVisible: isInView,
+                            translateValue: '-translate-y-20',
+                            delay: 'delay-100',
+                        }
+                    )}`}>
                     Contact
                 </h1>
                 <form
@@ -61,11 +78,13 @@ export const Contact = () => {
                         placeholder="Name"
                         aria-label="Name"
                         name="from_name"
-                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 transition-all ease-in duration-400 delay-[250ms] ${
-                            isInView
-                                ? 'opacity-100'
-                                : '-translate-x-40 opacity-0'
-                        }`}
+                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 ${createAnimationClass(
+                            {
+                                isVisible: isInView,
+                                translateValue: '-translate-x-40',
+                                delay: 'delay-[250ms]',
+                            }
+                        )}`}
                         required
                     />
                     <input
@@ -73,22 +92,26 @@ export const Contact = () => {
                         placeholder="Email"
                         aria-label="Email"
                         name="reply_to"
-                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 transition-all ease-in duration-400 delay-300 ${
-                            isInView
-                                ? 'opacity-100'
-                                : '-translate-x-40 opacity-0'
-                        }`}
+                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 ${createAnimationClass(
+                            {
+                                isVisible: isInView,
+                                translateValue: '-translate-x-40',
+                                delay: 'delay-300',
+                            }
+                        )}`}
                         required
                     />
                     <textarea
                         placeholder="Message"
                         aria-label="Message"
                         name="message"
-                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 min-h-48 transition-all ease-in duration-400 delay-[350ms] ${
-                            isInView
-                                ? 'opacity-100'
-                                : '-translate-x-40 opacity-0'
-                        }`}
+                        className={`p-4 border-none rounded-md bg-secondary-600/20 text-secondary-100 min-h-48 ${createAnimationClass(
+                            {
+                                isVisible: isInView,
+                                translateValue: '-translate-x-40',
+                                delay: 'delay-[350ms]',
+                            }
+                        )}`}
                         required
                     />
                     {isSent && (
@@ -99,11 +122,12 @@ export const Contact = () => {
                     <button
                         type="submit"
                         className={`p-4 bg-secondary-400 text-secondary-900 rounded-md hover:scale-105 my-4
-                        disabled:bg-secondary-400/50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:duration-0 transition-all ease-in duration-200 ${
-                            isInView
-                                ? 'opacity-100'
-                                : 'translate-y-20 opacity-0'
-                        }`}
+                        disabled:bg-secondary-400/50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:duration-0 transition-all ease-in duration-200 ${createAnimationClass(
+                            {
+                                isVisible: isInView,
+                                translateValue: 'translate-y-20',
+                            }
+                        )}`}
                         disabled={isSent}>
                         {isSending ? 'Sending...' : 'Send'}
                     </button>

@@ -26,7 +26,7 @@ export const Socials = () => {
                 </svg>
             </Link>
             <Link
-                href={'#'}
+                href={'https://www.linkedin.com/in/dylan-clerckx-9b427a356/'}
                 target="_blank"
                 aria-label="LinkedIn"
                 className={`transition-all ease-in duration-400 delay-300 ${

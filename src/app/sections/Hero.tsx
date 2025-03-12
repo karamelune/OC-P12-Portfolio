@@ -9,8 +9,24 @@ import { useRef } from 'react';
 export const Hero = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+
+    const animationClass = (delay = '') => `
+        transition-all ease-in duration-400 ${delay}
+        ${isInView ? 'opacity-100' : 'opacity-0'}
+    `;
+
+    const nameAnimation = `
+        ${animationClass()} inline-block
+        ${isInView ? '' : '-translate-y-10 sm:-translate-y-0'}
+    `;
+
+    const bioAnimation = `
+        ${animationClass('delay-[125ms]')} 
+        ${isInView ? '' : 'translate-x-10 sm:translate-x-0'}
+    `;
+
     return (
-        <section className="sticky top-0 flex flex-col items-center justify-center w-full h-screen p-2 m-2 bg-gradient-to-l from-primary-50 via-default-50 to-primary-50 ">
+        <section className="sticky top-0 flex flex-col items-center justify-center w-full h-screen p-2 m-2 bg-gradient-to-l from-primary-50 via-default-50 to-primary-50">
             <div
                 ref={ref}
                 className="flex flex-col items-center justify-center">
@@ -22,28 +38,13 @@ export const Hero = () => {
                         </span>
                         , my name is{' '}
                         <span
-                            className={`font-bold text-primary-400 transition-all ease-in duration-400 inline-block ${
-                                isInView
-                                    ? 'opacity-100'
-                                    : '-translate-y-10 sm:-translate-y-0 opacity-0 sm:opacity-100'
-                            }`}>
+                            className={`font-bold text-primary-400 ${nameAnimation}`}>
                             Dylan
                         </span>
-                        <span
-                            className={`transition-all ease-in duration-400 inline-block ${
-                                isInView
-                                    ? 'opacity-100'
-                                    : '-translate-y-10 sm:-translate-y-0 opacity-0 sm:opacity-100'
-                            }`}>
-                            .
-                        </span>
+                        <span className={nameAnimation}>.</span>
                     </h1>
                     <h2
-                        className={`text-3xl text-white m-2 px-4 transition-all ease-in duration-400 delay-[125ms] md:text-2xl md:text-center sm:text-xl ${
-                            isInView
-                                ? 'opacity-100'
-                                : 'translate-x-10 opacity-0 sm:translate-x-0 sm:opacity-100'
-                        }`}>
+                        className={`text-3xl text-white m-2 px-4 md:text-2xl md:text-center sm:text-xl ${bioAnimation}`}>
                         I&apos;m a{' '}
                         <span className="font-bold">front-end developer</span>{' '}
                         based in{' '}
